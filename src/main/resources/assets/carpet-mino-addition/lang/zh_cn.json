@@ -1,0 +1,20 @@
+{
+  "carpet.category.MINO": "Mino",
+  "carpet.rule.mobDropMultiplier.name": "生物掉落倍率",
+  "carpet.rule.mobDropMultiplier.desc": "掉落倍率。3 为全局 3 倍，cow=10 只改牛，3,cow=10 可混写。留空为原版",
+  "carpet.rule.wanderingTraderSellsIce.name": "冰冰冰",
+  "carpet.rule.wanderingTraderSellsIce.desc": "流浪商人有概率卖冰",
+  "carpet.rule.villagerTradePro.name": "村民交易Pro",
+  "carpet.rule.villagerTradePro.desc": "村民出售的钻石装备与弓弩有概率带满级附魔，农民有概率卖附魔金苹果",
+  "carpet.rule.wanderingTraderDespawnSeconds.name": "流浪商人常驻",
+  "carpet.rule.wanderingTraderDespawnSeconds.desc": "流浪商人停留多少秒后消失。-1 为永不消失，只对新生成的商人生效",
+  "mino.command.set_mob": "%s 的掉落倍率已设为 %s",
+  "mino.command.set_all": "所有生物的掉落倍率已设为 %s",
+  "mino.command.cleared": "已恢复原版掉落",
+  "mino.command.list_global": "全局倍率：%s",
+  "mino.command.list_global_only": "全局倍率：%s（没有单独设置的生物）",
+  "mino.command.unknown_mob": "找不到生物：%s",
+  "mino.command.no_manager": "Carpet 规则管理器尚未初始化",
+  "mino.command.no_rule": "找不到规则 mobDropMultiplier",
+  "mino.command.write_failed": "写入失败：%s"
+}

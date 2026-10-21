@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "carpet-mino-addition",
+	"version": "${version}",
+	"name": "Carpet Mino Addition",
+	"description": "A Carpet extension.",
+	"authors": [
+		"Mino"
+	],
+	"license": "MIT",
+	"icon": "icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"carpet.mino.CarpetMinoAddition"
+		],
+		"client": [
+			"carpet.mino.client.CarpetMinoAdditionClient"
+		]
+	},
+	"mixins": [
+		"carpet-mino-addition.mixins.json",
+		{
+			"config": "carpet-mino-addition.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"carpet": ">=26.2",
+		"fabric-api": "*"
+	}
+}
+

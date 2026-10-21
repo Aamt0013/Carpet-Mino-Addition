@@ -1,0 +1,20 @@
+{
+  "carpet.category.MINO": "Mino",
+  "carpet.rule.mobDropMultiplier.name": "Mob Drop Multiplier",
+  "carpet.rule.mobDropMultiplier.desc": "Drop multiplier. 3 for all mobs, cow=10 only cows, 3,cow=10 mixes both. Empty means vanilla",
+  "carpet.rule.wanderingTraderSellsIce.name": "Ice Ice Ice",
+  "carpet.rule.wanderingTraderSellsIce.desc": "Wandering traders may sell ice",
+  "carpet.rule.villagerTradePro.name": "Villager Trade Pro",
+  "carpet.rule.villagerTradePro.desc": "Villager diamond gear and bows/crossbows may carry max-level enchantments; farmers may sell enchanted golden apples",
+  "carpet.rule.wanderingTraderDespawnSeconds.name": "Traders Stay",
+  "carpet.rule.wanderingTraderDespawnSeconds.desc": "Seconds a wandering trader stays before despawning. -1 never despawns. Newly spawned traders only",
+  "mino.command.set_mob": "Drop multiplier for %s set to %s",
+  "mino.command.set_all": "Drop multiplier for all mobs set to %s",
+  "mino.command.cleared": "Restored vanilla drops",
+  "mino.command.list_global": "Global multiplier: %s",
+  "mino.command.list_global_only": "Global multiplier: %s (no per-mob overrides)",
+  "mino.command.unknown_mob": "Unknown mob: %s",
+  "mino.command.no_manager": "Carpet settings manager is not initialized yet",
+  "mino.command.no_rule": "Rule mobDropMultiplier not found",
+  "mino.command.write_failed": "Failed to write: %s"
+}

@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "carpet.mino.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"no_hunger_drain.PlayerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
+

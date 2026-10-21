@@ -1,0 +1,79 @@
+plugins {
+	// 26.x 起 Mojang 不再发布混淆映射，游戏 jar 本身就是官方名，
+	// 因此使用不带 -remap 的 Loom 插件；配 -remap 会找不到 mappings 而失败。
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+repositories {
+	// Carpet 系列的发布源。Carpet 本体、它的 API 以及后续要接的 Carpet Extension
+	// 生态都从这里取；没有这个仓库，carpet:fabric-carpet 解析不到。
+	maven {
+		name = 'masa'
+		url = 'https://masa.dy.fi/maven'
+		content {
+			includeModule('carpet', 'fabric-carpet')
+		}
+	}
+}
+
+loom {
+	splitEnvironmentSourceSets()
+
+	// 26.2 不需要 access widener：交易已改为数据驱动，mixin 挂的
+	// EnchantWithLevelsFunction 是 public 类，没有 private 嵌套类要打开。
+
+	mods {
+		"carpet-mino-addition" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	// 26.x 无混淆，不需要 mappings 依赖。
+
+	// Fabric 加载器：模组运行的前置平台
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Carpet 本体：Carpet Extension 的前置，提供 carpet.CarpetExtension /
+	// carpet.api.settings.* 等扩展 API
+	implementation "carpet:fabric-carpet:${project.carpet_version}"
+
+	// Fabric API：本模组没有 import 任何 net.fabricmc.fabric.* 类，但它是必需的——
+	// 语言文件 assets/<id>/lang/*.json 依赖 Fabric 的资源加载才能被客户端读入，
+	// 去掉后 /mino 命令的回显会退化成 mino.command.* 原始键。
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+	}
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE") {
+		rename { "${it}_$projectName" }
+	}
+}
+
