@@ -5,12 +5,8 @@ import net.fabricmc.api.ClientModInitializer;
 /**
  * 客户端唯一入口。
  *
- * <p>按 client-features/README.md 的约定：客户端功能全部在 src/client 下按功能分包，
- * 由这里显式注册，不依赖 classpath 扫描。例如：
- *
- * <pre>{@code
- * new carpet.mino.client.feature.waypoint_hud.WaypointHud().init();
- * }</pre>
+ * <p>客户端功能全部在 {@code src/client} 下按功能分包，由这里显式注册，
+ * 不依赖 classpath 扫描——顺序可控，出问题好定位。
  */
 public class CarpetMinoAdditionClient implements ClientModInitializer {
 	@Override

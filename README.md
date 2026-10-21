@@ -96,8 +96,7 @@ Carpet-Mino-Addition-26.2/
 │   ├─ CarpetMinoAdditionClient.java    客户端唯一入口
 │   ├─ feature/no_hunger_drain/         飞行不掉饱食度
 │   └─ mixin/no_hunger_drain/PlayerMixin.java
-├─ src/client/resources/carpet-mino-addition.client.mixins.json
-└─ client-features/                 客户端功能的规划/孵化工作区（纯文档 + 模板）
+└─ src/client/resources/carpet-mino-addition.client.mixins.json
 ```
 
 ## Carpet 扩展的接入点
@@ -184,13 +183,6 @@ systemProp.http.nonProxyHosts=localhost|127.0.0.1
 4. **跨大版本时还要改构建配置**：从 1.21.x 升到 26.x 要按上面「26.x 的构建差异」换插件、
    去掉 `mappings`、改依赖配置与 Java 版本。
 5. `.\gradlew.bat --refresh-dependencies build` 验证。
-
-## 客户端功能工作区
-
-`client-features/` 是客户端专属功能的规划与模板目录（不参与构建）。规范见
-[client-features/README.md](client-features/README.md)：功能孵化后放进
-`src/client/java/carpet/mino/client/feature/<feature_name>/`，并在
-`CarpetMinoAdditionClient` 里显式注册、在 `carpet-mino-addition.client.mixins.json` 里登记 Mixin。
 
 ## License
 

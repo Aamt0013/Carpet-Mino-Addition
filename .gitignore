@@ -38,3 +38,7 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+# 个人工作流文档，不参与构建
+
+client-features/
