@@ -1,9 +1,7 @@
 # Carpet Mino Addition
 
-一个基于 **Carpet Extension** 体系的 Minecraft 模组工程（Minecraft 26.2 / Fabric）。
-
-> 本工程是 26.2 分支。1.21.11 版本在同级的 `Carpet-Mino-Addition` 目录，
-> 两者构建配置差异较大（见下方「26.x 的构建差异」）。
+一个基于 **Carpet Extension** 体系的 Minecraft 模组（Minecraft 26.2 / Fabric），
+提供几条实用的生存向规则：生物掉落倍率、流浪商人卖冰、村民交易增强、流浪商人常驻。
 
 ## 版本矩阵
 

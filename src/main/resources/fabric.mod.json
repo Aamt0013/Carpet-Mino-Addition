@@ -3,7 +3,7 @@
 	"id": "carpet-mino-addition",
 	"version": "${version}",
 	"name": "Carpet Mino Addition",
-	"description": "A Carpet extension.",
+	"description": "Carpet extension: mob drop multiplier, wandering trader ice, villager trade perks, configurable trader despawn.",
 	"authors": [
 		"Mino"
 	],
