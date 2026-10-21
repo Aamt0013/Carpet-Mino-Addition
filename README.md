@@ -1,7 +1,7 @@
 # Carpet Mino Addition
 
-![Minecraft](https://img.shields.io/badge/Minecraft-26.2-3C8527)
-![License](https://img.shields.io/badge/License-MIT-blue)
+[![Minecraft](https://img.shields.io/badge/Minecraft-26.2-3C8527)](https://github.com/Aamt0013/Carpet-Mino-Addition/releases)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
 一个 [Carpet](https://github.com/gnembon/fabric-carpet) 扩展，为 Minecraft **26.2** 提供几条生存向规则。
 
