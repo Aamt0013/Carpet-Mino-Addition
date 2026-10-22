@@ -84,6 +84,23 @@ public class MinoSettings {
 	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL}, validators = WanderingTraderDespawnValidator.class)
 	public static int wanderingTraderDespawnSeconds = 0;
 
+	/**
+	 * 让非玩家建造的铁傀儡不攻击玩家。
+	 *
+	 * <p>原版铁傀儡的 {@code canAttack} 只挡「玩家建造的 + 玩家」这一种组合，
+	 * 村庄自然生成的铁傀儡仍会攻击村庄好感度低的玩家。开启后把这条豁免
+	 * 扩展到所有非玩家建造的铁傀儡。
+	 *
+	 * <p>只改 {@code canAttack} 就够：{@code Mob.setTarget} 会先过
+	 * {@code asValidTarget}，其中调 {@code canAttack}，返回 false 则目标置空。
+	 * 因此挨打反击（{@code HurtByTargetGoal}）和保卫村庄
+	 * （{@code DefendVillageTargetGoal}）这两条绕过目标筛选的路径也会一并失效。
+	 *
+	 * <p>玩家建造的铁傀儡在原版就已经不打玩家，不受本规则影响。
+	 */
+	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
+	public static boolean friendlyIronGolem = false;
+
 	private MinoSettings() {
 	}
 }

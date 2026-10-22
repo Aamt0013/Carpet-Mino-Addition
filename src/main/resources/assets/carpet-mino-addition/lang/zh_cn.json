@@ -8,6 +8,8 @@
   "carpet.rule.villagerTradePro.desc": "村民出售的钻石装备与弓弩有概率带满级附魔，农民有概率卖附魔金苹果",
   "carpet.rule.wanderingTraderDespawnSeconds.name": "流浪商人常驻",
   "carpet.rule.wanderingTraderDespawnSeconds.desc": "流浪商人停留多少秒后消失。-1 为永不消失，只对新生成的商人生效",
+  "carpet.rule.friendlyIronGolem.name": "友善的铁傀儡",
+  "carpet.rule.friendlyIronGolem.desc": "非玩家建造的铁傀儡不攻击玩家",
   "mino.command.set_mob": "%s 的掉落倍率已设为 %s",
   "mino.command.set_all": "所有生物的掉落倍率已设为 %s",
   "mino.command.cleared": "已恢复原版掉落",

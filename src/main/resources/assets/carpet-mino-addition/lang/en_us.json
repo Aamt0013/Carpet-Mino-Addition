@@ -8,6 +8,8 @@
   "carpet.rule.villagerTradePro.desc": "Villager diamond gear and bows/crossbows may carry max-level enchantments; farmers may sell enchanted golden apples",
   "carpet.rule.wanderingTraderDespawnSeconds.name": "Traders Stay",
   "carpet.rule.wanderingTraderDespawnSeconds.desc": "Seconds a wandering trader stays before despawning. -1 never despawns. Newly spawned traders only",
+  "carpet.rule.friendlyIronGolem.name": "Friendly Iron Golems",
+  "carpet.rule.friendlyIronGolem.desc": "Iron golems not built by players ignore players",
   "mino.command.set_mob": "Drop multiplier for %s set to %s",
   "mino.command.set_all": "Drop multiplier for all mobs set to %s",
   "mino.command.cleared": "Restored vanilla drops",

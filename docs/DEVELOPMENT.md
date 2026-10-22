@@ -15,6 +15,7 @@ src/main/java/carpet/mino/
 │   └─ validator/               各规则的取值校验器
 ├─ command/MinoCommand.java     /mino 命令树
 └─ mixin/
+    ├─ IronGolemMixin.java                 非玩家建造的铁傀儡不攻击玩家
     ├─ LivingEntityMixin.java              生物掉落倍率 + 堆叠合并
     ├─ TradePoolMixin.java                 往交易池塞自定义交易（冰、附魔金苹果）
     ├─ WanderingTraderDespawnMixin.java    流浪商人消失延迟

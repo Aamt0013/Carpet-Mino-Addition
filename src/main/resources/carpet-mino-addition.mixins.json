@@ -3,6 +3,7 @@
 	"package": "carpet.mino.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
+		"IronGolemMixin",
 		"LivingEntityMixin",
 		"TradePoolMixin",
 		"WanderingTraderDespawnMixin",
@@ -15,6 +16,7 @@
 		"requireAnnotations": true
 	}
 }
+
 
 
 
