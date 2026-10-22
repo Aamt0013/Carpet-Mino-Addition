@@ -101,6 +101,23 @@ public class MinoSettings {
 	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
 	public static boolean friendlyIronGolem = false;
 
+	/**
+	 * 让雪傀儡不会因为环境死亡。
+	 *
+	 * <p>原版雪傀儡有两个致死点：
+	 * <ul>
+	 *   <li><b>热带融化</b>：{@code aiStep} 里查 {@code EnvironmentAttributes.SNOW_GOLEM_MELTS}，
+	 *       为真就每 tick 施加 1 点火焰伤害。26.2 起这个判断从硬编码的生物群系温度
+	 *       改成了环境属性，但效果一样——温暖群系里活不久。</li>
+	 *   <li><b>雨水与水</b>：{@code isSensitiveToWater()} 恒为 true，{@code baseTick} 里
+	 *       只要 {@code isInWaterOrRain()} 就每 tick 施加 1 点溺水伤害。</li>
+	 * </ul>
+	 *
+	 * <p>开启后这两条伤害都不再生效，但雪傀儡照常走雪地铺雪、投掷雪球、被玩家正常打伤。
+	 */
+	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
+	public static boolean sturdySnowGolem = false;
+
 	private MinoSettings() {
 	}
 }

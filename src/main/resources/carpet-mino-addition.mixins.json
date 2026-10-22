@@ -5,6 +5,7 @@
 	"mixins": [
 		"IronGolemMixin",
 		"LivingEntityMixin",
+		"SnowGolemMixin",
 		"TradePoolMixin",
 		"WanderingTraderDespawnMixin",
 		"VillagerTradesMixin"
@@ -16,6 +17,7 @@
 		"requireAnnotations": true
 	}
 }
+
 
 
 
