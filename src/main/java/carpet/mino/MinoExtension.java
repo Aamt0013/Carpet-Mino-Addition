@@ -25,6 +25,7 @@ import java.util.Map;
  * 且翻译键落在 {@code carpet.rule.*}，与 Carpet 查找键一致。
  */
 public class MinoExtension implements CarpetExtension {
+	private static final Gson GSON = new Gson();
 	private static final Type TRANSLATION_TYPE = new TypeToken<Map<String, String>>() {
 	}.getType();
 
@@ -85,7 +86,7 @@ public class MinoExtension implements CarpetExtension {
 		}
 
 		try (InputStream in = stream) {
-			Map<String, String> map = new Gson().fromJson(
+			Map<String, String> map = GSON.fromJson(
 					new InputStreamReader(in, StandardCharsets.UTF_8),
 					TRANSLATION_TYPE
 			);

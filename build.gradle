@@ -17,7 +17,8 @@ repositories {
 }
 
 loom {
-	splitEnvironmentSourceSets()
+	// 本模组纯服务端：规则和 mixin 都只改服务端逻辑，没有客户端代码，
+	// 因此不启用 splitEnvironmentSourceSets()。
 
 	// 26.2 不需要 access widener：交易已改为数据驱动，mixin 挂的
 	// EnchantWithLevelsFunction 是 public 类，没有 private 嵌套类要打开。
@@ -25,7 +26,6 @@ loom {
 	mods {
 		"carpet-mino-addition" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 }

@@ -30,11 +30,10 @@ src/main/resources/
 └─ data/carpet-mino-addition/villager_trade/
     ├─ wandering_trader/emerald_ice.json
     └─ farmer/5/emerald_enchanted_golden_apple.json
-
-src/client/
-├─ java/carpet/mino/client/              客户端入口与 no_hunger_drain 功能
-└─ resources/carpet-mino-addition.client.mixins.json
 ```
+
+模组纯服务端（`fabric.mod.json` 的 `environment` 是 `server`），没有 `src/client`，
+也没启用 `splitEnvironmentSourceSets()`。
 
 ## Carpet 扩展的接入点
 

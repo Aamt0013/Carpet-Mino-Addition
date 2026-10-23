@@ -133,7 +133,8 @@ public final class MobDropSpec {
 	 *
 	 * <p>不能用 {@code getValue} 判断存在性：{@code ENTITY_TYPE} 是 {@code DefaultedRegistry}，
 	 * 未知 id 会回退到 {@code minecraft:pig} 而不报错，拼写错误会被静默当成猪。
-	 * 可靠做法是反查该类型自身的 id 再比对。
+	 * 可靠做法是反查该类型自身的 id 再比对——{@code getValue} 对未知 id 不会返回 null，
+	 * 所以这里不需要判空。
 	 */
 	public static Identifier resolveEntityId(String raw) {
 		String candidate = raw.contains(":") ? raw : VANILLA_NAMESPACE + ":" + raw;
@@ -142,9 +143,6 @@ public final class MobDropSpec {
 			return null;
 		}
 		EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getValue(id);
-		if (type == null) {
-			return null;
-		}
 		Identifier actual = EntityType.getKey(type);
 		return id.equals(actual) ? id : null;
 	}

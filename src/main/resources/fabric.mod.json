@@ -8,22 +8,15 @@
 		"Mino"
 	],
 	"license": "MIT",
-	"icon": "icon.png",
-	"environment": "*",
+	"icon": "assets/carpet-mino-addition/icon.png",
+	"environment": "server",
 	"entrypoints": {
 		"main": [
 			"carpet.mino.CarpetMinoAddition"
-		],
-		"client": [
-			"carpet.mino.client.CarpetMinoAdditionClient"
 		]
 	},
 	"mixins": [
-		"carpet-mino-addition.mixins.json",
-		{
-			"config": "carpet-mino-addition.client.mixins.json",
-			"environment": "client"
-		}
+		"carpet-mino-addition.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.19.5",
@@ -33,4 +26,5 @@
 		"fabric-api": "*"
 	}
 }
+
 

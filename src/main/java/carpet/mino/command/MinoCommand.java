@@ -177,10 +177,17 @@ public final class MinoCommand {
 		}
 	}
 
-	/** 取生物的中文名（客户端语言决定），查不到时退回 id。 */
+	/**
+	 * 取生物的中文名（客户端语言决定），查不到时退回 id。
+	 *
+	 * <p>不能用 {@code getValue(id) == null} 判断存在性：{@code ENTITY_TYPE} 是
+	 * {@code DefaultedRegistry}，未知 id 会回退成 {@code minecraft:pig}，
+	 * 于是拼错的生物会显示成「猪」。这里反查实体自身的 id 再比对，与
+	 * {@link MobDropSpec#resolveEntityId} 用的是同一套判据。
+	 */
 	private static Component entityName(Identifier id) {
 		EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getValue(id);
-		if (type == null) {
+		if (type == null || !id.equals(EntityType.getKey(type))) {
 			return Component.literal(id.getPath());
 		}
 		return type.getDescription();
