@@ -13,6 +13,10 @@ import net.minecraft.world.entity.player.Player;
  * <p>这里逐级扣：先吃掉当前等级的进度，再降一级并把进度填到接近满，
  * 直到扣完或等级见底。与 {@code giveExperiencePoints} 的加经验路径互逆，
  * 不会出现进度为负或等级穿底。
+ *
+ * <p>经验曲线按等级分段线性，反算「从 0 级练到某级需要多少经验」有闭式解，
+ * 不必逐级累加——本类被每 tick 调用，逐级循环在 100 级玩家身上会放大成
+ * 每秒上千次迭代。
  */
 public final class ExperienceDrain {
 	private ExperienceDrain() {
@@ -26,11 +30,9 @@ public final class ExperienceDrain {
 	 * {@link #drain} 完整扣掉。
 	 */
 	public static int availableExperience(Player player) {
-		int total = 0;
-		for (int level = 0; level < player.experienceLevel; level++) {
-			total += experienceNeededForLevel(level);
-		}
-		return total + (int) (player.experienceProgress * experienceNeededForLevel(player.experienceLevel));
+		int level = player.experienceLevel;
+		int total = experienceForLevel(level);
+		return total + (int) (player.experienceProgress * experienceNeededForLevel(level));
 	}
 
 	/**
@@ -57,7 +59,7 @@ public final class ExperienceDrain {
 			remaining -= takeFromProgress;
 		}
 
-		// 进度扣完后再一级一级往下掉。
+		// 进度扣完后再一级一级往下掉。跨度通常只有 1-2 级，不是热点。
 		while (remaining > 0 && player.experienceLevel > 0) {
 			int needed = experienceNeededForLevel(player.experienceLevel - 1);
 			player.experienceLevel--;
@@ -77,6 +79,41 @@ public final class ExperienceDrain {
 			player.totalExperience = 0;
 		}
 		return drained;
+	}
+
+	/**
+	 * 从 0 级练到 {@code level} 级所需的总经验，闭式解。
+	 *
+	 * <p>原版曲线（{@code Player.getXpNeededForNextLevel}）：
+	 * <pre>
+	 * 0-14 级：7 + level * 2
+	 * 15-29 级：37 + (level - 15) * 5
+	 * 30+ 级：112 + (level - 30) * 9
+	 * </pre>
+	 * 每段都是等差数列，直接套求和公式。
+	 *
+	 * <p>返回值封顶在 {@link Integer#MAX_VALUE}：曲线是二次的，约 21864 级时
+	 * 总经验就会溢出 int。正常玩法到不了那个等级，但 {@code /xp set} 可以，
+	 * 封顶比回绕成负数安全——负数会让「可用经验」判断全部失效。
+	 */
+	private static int experienceForLevel(int level) {
+		if (level <= 0) {
+			return 0;
+		}
+		long total;
+		if (level <= 15) {
+			// 0..level-1 共 level 项，首项 7、公差 2。
+			total = (long) level * 7 + (long) level * (level - 1);
+		} else if (level <= 30) {
+			int n = level - 15;
+			total = 15L * 7 + 15L * 14 + (long) n * 37 + (long) n * (n - 1) * 5 / 2;
+		} else {
+			int n = level - 30;
+			total = 15L * 7 + 15L * 14                       // 0-14 级
+					+ 15L * 37 + 15L * 14 * 5 / 2            // 15-29 级
+					+ (long) n * 112 + (long) n * (n - 1) * 9 / 2;
+		}
+		return (int) Math.min(total, Integer.MAX_VALUE);
 	}
 
 	/** 第 {@code level} 级升到下一级所需经验，与 {@code Player.getXpNeededForNextLevel} 同公式。 */
