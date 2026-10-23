@@ -20,6 +20,7 @@ src/main/java/carpet/mino/
     ├─ LivingEntityMixin.java              生物掉落倍率 + 堆叠合并
     ├─ SnowGolemMixin.java                 雪傀儡不因温暖群系或淋雨受伤
     ├─ TradePoolMixin.java                 往交易池塞自定义交易（冰、附魔金苹果）
+    ├─ TripWireBlockMixin.java             刷线机（改写绊线钩的线路状态推算）
     ├─ WanderingTraderDespawnMixin.java    流浪商人消失延迟
     └─ VillagerTradesMixin.java            村民交易 Pro（钻石装备 / 弓弩的满级附魔）
 

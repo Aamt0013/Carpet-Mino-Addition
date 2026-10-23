@@ -14,6 +14,8 @@
   "carpet.rule.sturdySnowGolem.desc": "雪傀儡不会因为温暖群系融化或淋雨而受伤",
   "carpet.rule.mendingMax.name": "经验修补MAX",
   "carpet.rule.mendingMax.desc": "自动用经验栏修补身上所有带经验修补的装备，不再只修一件",
+  "carpet.rule.stringDupeMino.name": "刷线机",
+  "carpet.rule.stringDupeMino.desc": "用剪刀剪绊线会正常掉线，可以反复剪",
   "mino.command.set_mob": "%s 的掉落倍率已设为 %s",
   "mino.command.set_all": "所有生物的掉落倍率已设为 %s",
   "mino.command.cleared": "已恢复原版掉落",

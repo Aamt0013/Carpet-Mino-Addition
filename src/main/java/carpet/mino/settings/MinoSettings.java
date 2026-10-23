@@ -134,6 +134,22 @@ public class MinoSettings {
 	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
 	public static boolean mendingMax = false;
 
+	/**
+	 * 恢复刷线机：剪断绊线后线路不再「记住」被剪的那一段，可以反复剪线收线。
+	 *
+	 * <p>24w33a 起（MC-59471）用剪刀剪绊线不再销毁方块，而是把它设成
+	 * {@code disarmed} 留在原地：红石信号失效，但线还在，捡不回来。
+	 *
+	 * <p>绊线钩用 {@code calculateState} 推算整条线路状态。开启本规则后，
+	 * 钩子在推算时会把「这一格是绊线」判断恒为真，于是被剪断的绊线重新
+	 * 进入正常线路流程，剪断即可掉落。
+	 *
+	 * <p>名字带 Mino 后缀是为了避开 AMS 里同名的 {@code stringDupeReintroduced}，
+	 * 两个 mod 同时装时不会互相覆盖。
+	 */
+	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
+	public static boolean stringDupeMino = false;
+
 	private MinoSettings() {
 	}
 }
