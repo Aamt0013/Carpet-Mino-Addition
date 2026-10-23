@@ -12,6 +12,8 @@
   "carpet.rule.friendlyIronGolem.desc": "Iron golems not built by players ignore players",
   "carpet.rule.sturdySnowGolem.name": "Sturdy Snow Golems",
   "carpet.rule.sturdySnowGolem.desc": "Snow golems do not melt in warm biomes or take damage from water and rain",
+  "carpet.rule.mendingMax.name": "Mending Max",
+  "carpet.rule.mendingMax.desc": "Automatically mends every worn item with Mending from the XP bar, instead of one random piece",
   "mino.command.set_mob": "Drop multiplier for %s set to %s",
   "mino.command.set_all": "Drop multiplier for all mobs set to %s",
   "mino.command.cleared": "Restored vanilla drops",

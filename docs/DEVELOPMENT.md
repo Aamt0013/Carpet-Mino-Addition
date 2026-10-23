@@ -16,6 +16,7 @@ src/main/java/carpet/mino/
 ├─ command/MinoCommand.java     /mino 命令树
 └─ mixin/
     ├─ IronGolemMixin.java                 非玩家建造的铁傀儡不攻击玩家
+    ├─ MendingMaxMixin.java                 经验修补自动修满全部装备
     ├─ LivingEntityMixin.java              生物掉落倍率 + 堆叠合并
     ├─ SnowGolemMixin.java                 雪傀儡不因温暖群系或淋雨受伤
     ├─ TradePoolMixin.java                 往交易池塞自定义交易（冰、附魔金苹果）

@@ -118,6 +118,22 @@ public class MinoSettings {
 	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
 	public static boolean sturdySnowGolem = false;
 
+	/**
+	 * 经验修补 MAX：每 tick 用经验栏自动修补身上所有带经验修补的装备。
+	 *
+	 * <p>原版只在拾取经验球时触发，且由 {@code getRandomItemWith} 随机挑**一件**装备来修，
+	 * 球的经验不够就只能修一半，剩下的经验进了经验栏却不会再回流到装备上。
+	 *
+	 * <p>开启后改为主动结算：每 tick 扫一遍装备槽（主手、副手、头盔、胸甲、护腿、靴子），
+	 * 把耐久未满且带经验修补的那几件一次性修满，经验从经验栏扣。
+	 *
+	 * <p>只动经验栏、不碰经验球，避免和经验球自身的 {@code repairPlayerItems} 抢同一份经验。
+	 * 扣除走逐级回退，不会触发原版 {@code giveExperiencePoints(负数)} 在等级归零时
+	 * 清零 {@code totalExperience} 的副作用。
+	 */
+	@Rule(categories = {CATEGORY, RuleCategory.SURVIVAL})
+	public static boolean mendingMax = false;
+
 	private MinoSettings() {
 	}
 }
