@@ -34,8 +34,12 @@ src/main/resources/
     └─ farmer/5/emerald_enchanted_golden_apple.json
 ```
 
-模组纯服务端（`fabric.mod.json` 的 `environment` 是 `server`），没有 `src/client`，
-也没启用 `splitEnvironmentSourceSets()`。
+模组只有服务端逻辑，没有 `src/client`，也没启用 `splitEnvironmentSourceSets()`。
+
+`fabric.mod.json` 的 `environment` 必须是 `*`（或省略），**不能写 `server`**。
+写成 `server` 时 `ModEnvironment.SERVER.matches(EnvType.CLIENT)` 返回 `false`，
+`ModDiscoverer` 会在发现阶段直接把整个模组排除，客户端（含单人游戏）里
+模组列表看不到它，且日志里既没有报错也没有警告——非常难排查。
 
 ## Carpet 扩展的接入点
 

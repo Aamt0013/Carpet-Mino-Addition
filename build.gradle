@@ -45,6 +45,11 @@ dependencies {
 	// 语言文件 assets/<id>/lang/*.json 依赖 Fabric 的资源加载才能被客户端读入，
 	// 去掉后 /mino 命令的回显会退化成 mino.command.* 原始键。
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// MixinExtras 提供 @ModifyExpressionValue / @WrapOperation / @ModifyVariable / @Local，
+	// 本模组的 mixin 全都依赖它。开发环境里 Loom 会自动注入，但正式 jar 必须自己带上，
+	// 否则在没装其他同样嵌套了 MixinExtras 的模组（比如 AMS）时会 NoClassDefFoundError。
+	include "io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}"
 }
 
 processResources {

@@ -3,13 +3,13 @@
 	"id": "carpet-mino-addition",
 	"version": "${version}",
 	"name": "Carpet Mino Addition",
-	"description": "Carpet extension: mob drop multiplier, wandering trader ice, villager trade perks, configurable trader despawn.",
+	"description": "Carpet extension: mob drop multiplier, wandering trader tweaks, villager trade perks, friendly iron golem, sturdy snow golem, mending max, string duper.",
 	"authors": [
 		"Mino"
 	],
 	"license": "MIT",
 	"icon": "assets/carpet-mino-addition/icon.png",
-	"environment": "server",
+	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"carpet.mino.CarpetMinoAddition"
